@@ -6,40 +6,33 @@
 
 ---
 
-## 🚀 Corporate Transportation & Operations Management Platform
+<h1 align="center"> FleetWise: Enterprise Mobility & Operations Management Platform</h1>
 
-We are redefining corporate transportation needs in the Turkish and global markets beyond a simple ride-hailing service, transforming it into a fully-fledged **B2B SaaS + B2C Marketplace hybrid platform**. By bringing traditional companies' manually operated processes under digital discipline, we aim to reduce costs and minimize the operational workload while simultaneously serving individual customers through a public marketplace.
+<p align="center">
+  We are redefining the global mobility market by bridging the gap between B2B corporate fleets and B2C end-users. Moving beyond simple ride-hailing and static hourly rentals, FiloWise is a fully-fledged <b>B2B SaaS + B2C Marketplace hybrid platform</b>. By bringing traditional, fragmented transportation processes under strict digital orchestration, we maximize operational margins, eliminate dead mileage, and provide an autonomous allocation engine powered by advanced AI and real-time telemetry.
+</p>
 
-> **Current Version: v2.5 — Production-Ready** &nbsp;|&nbsp; ~23,000+ LoC &nbsp;|&nbsp; 90+ Commits &nbsp;|&nbsp; 178 Source Files
-
-<br>
+<br />
 
 ### 🏗️ 3 Main Architectural Layers
 
-<div align="left" style="display: inline-block; text-align: left; max-width: 800px;">
+Our system is built upon a strictly isolated, highly scalable PostgreSQL-first infrastructure, divided into three core pillars:
 
-Our system is built upon the following three core operational pillars:
+1. **B2B Corporate Automation Layer:** A multi-tenant SaaS dashboard where companies manage their internal transportation policies, exclusive driver–vehicle assignments, S3/MinIO cloud document storage, and multi-level approval workflows. Fully secured behind granular Role-Based Access Control (Admin, Assistant, Finance, Driver).
+2. **B2C Public Marketplace & RAG Concierge:** A customer-facing portal where individual users discover transportation services, define multi-stop itineraries, and place orders. It features an integrated Gemini-powered RAG chatbot for natural language assistance and real-time trip tracking.
+3. **Shared Orchestration Core (The Atomic Bridge):** The engine that unites both worlds. B2C orders atomically generate B2B reservations and driver tasks within a single database transaction. Status changes, GPS telemetry, and Expected vs. Realized P&L (Profit & Loss) metrics are bidirectionally synchronized, creating a single source of truth.
 
-1. **B2B Corporate Automation Layer:** The main SaaS dashboard where companies manage their internal transportation policies, multi-level approval workflows, department-based budgeting, and driver operations — all secured behind role-based access control with four distinct user roles (Admin, Assistant, Finance, Driver).
-2. **B2C Public Marketplace:** A customer-facing marketplace where individual users discover transportation services from registered companies, place orders, track trips in real time, and leave ratings — fully integrated into the same backend infrastructure through an atomic bridging mechanism.
-3. **Shared Operational Core:** B2C orders automatically generate B2B reservations and driver tasks via atomic transactions. Status changes are bidirectionally synchronized between both layers, creating a single source of truth for all operational data.
-
-</div>
-
-<br><br>
+<br />
 
 ### 🧠 AI & Engineering Layer (The X-Factors)
 
-<div align="left" style="display: inline-block; text-align: left; max-width: 800px;">
+The proprietary technologies and deep engineering modules that transform FiloWise from a standard dashboard into an autonomous operations infrastructure:
 
-The artificial intelligence and engineering modules that differentiate our platform and transform it into a true technology product:
-
-* **NLP Smart Dispatcher (AI Dispatcher):** A natural language processing layer powered by **Google Gemini 2.5 Flash** that automatically extracts structured reservation data (type, locations, date, time, passenger count) from a single WhatsApp-style message. Supports Turkish relative date/time expressions ("Yarın", "Cuma saat 14:30").
-* **Decision-Support Cost Estimator:** The new-reservation form automatically calculates the operational cost using the Haversine formula for route distance combined with real-world fuel price and vehicle depreciation constants (`₺4.575/km`), pre-filling the cost field while leaving the customer price field blank for manual negotiation.
-* **Driver Trust Score & Safety Index:** An analytics engine that processes passenger feedback using NLP sentiment analysis (heuristic keyword matching + optional Gemini AI scoring) and calculates a weighted overall score: `rating × 0.7 + ai_sentiment_score × 0.3`, clamped to a 1.0–5.0 scale.
-* **AI Carpooling & Route Optimization:** Smart optimization that identifies employees heading in the same direction using clustering algorithms, providing up to 40% cost savings.
-
-</div>
+* **NLP Smart Dispatcher & Context-Aware Chatbot:** Powered by Google Gemini 2.5 Flash and `pgvector`. Extracts structured reservation data directly from WhatsApp-style raw text, and drives a Redis-cached RAG chatbot that understands the active marketplace context.
+* **OSRM Multi-Stop Routing & Dynamic Geofencing:** Replaced basic straight-line math with real road-network polyline decoding via OSRM. Features dynamic city-level bounding boxes and strict POI protection (locking critical infrastructure like airports/terminals) to prevent phantom bookings.
+* **AI Surge Pricing & Real-Time P&L Engine:** A dynamic pricing engine that calculates binding fares based on peak-hour multipliers and demand density. Simultaneously, the system computes the exact operational cost (fuel + depreciation) per OSRM distance, surfacing the Net P&L margin *before* the trip even starts.
+* **Sustainable Carpooling (Shared Ride) Algorithm:** A smart matching engine that pairs compatible B2C orders within a ±2-hour window and a 20km radius (Haversine). It merges trips, applies automated discounts, and tracks exact DEFRA-compliant CO₂ savings for ESG reporting.
+* **Driver Trust Score & U-ETDS Compliance:** Processes passenger feedback using NLP sentiment analysis to calculate a weighted safety and service score. All trip data is seamlessly structured for automated regulatory reporting to the Turkish Ministry of Transport (U-ETDS).
 
 <br>
 
@@ -72,31 +65,30 @@ The artificial intelligence and engineering modules that differentiate our platf
 <div align="left" style="display: inline-block; text-align: left; max-width: 800px;">
 
 #### B2B Corporate Dashboard
-- **Personnel Management** — Full CRUD, role assignment (Admin / Assistant / Finance / Driver), department linking, activate/deactivate guards
-- **Reservation Management** — Transfer & allocation types, 5-stage approval workflow, Leaflet map preview, driver conflict detection (overlapping trip lock), past-date guard, marketplace-origin badge
-- **Task Management** — 5-state flow (`Pending → Assigned → In Progress → Completed / Failed`), overdue auto-fail, forward-only status transitions, 20-second polling
-- **Administrative Requests** — Leave, equipment, other, reservation-cancellation request types; bidirectional notification flow; duplicate-decision auto-close; 1-cancellation-per-reservation limit
-- **Finance & P&L** — Income/expense tracking with dynamic date filters (This Month / Last Month / This Year / Custom Range), real-time Net P&L merging B2C marketplace revenue + manual entries + auto-derived operational costs, dual-series monthly bar chart (ApexCharts), PDF & Excel exports
-- **Analytics** — Donut/bar charts from live data, CO₂ / ESG metrics, U-ETDS compliance screen
-- **Roles & RBAC** — Custom role creation with JSONB permission maps, system role protection
-- **AI Dispatcher** — Gemini 2.5 Flash NLP reservation extraction from natural language messages
+- **Fleet & Personnel Management** — Full CRUD for staff and strict multi-tenant vehicle registries (Sedan, SUV, VIP), exclusive driver–vehicle assignments, and DEFRA 2024 CO₂ coefficient tracking.
+- **Reservation & OSRM Routing** — Transfer & allocation types, multi-stop (waypoint) routing powered by OSRM, Geofence map validation, and Gemini 2.5 Flash NLP for parsing reservations from raw text.
+- **Task Management (Kanban)** — Drag-and-drop 3-column Kanban board (`Pending → In Progress → Completed/Failed`), overdue auto-fail logic, and strict overlapping trip lock.
+- **Finance & Expected vs. Realized P&L** — Real-time margin tracking comparing OSRM-derived expected operational costs against manually realized revenue. Dual-series ApexCharts, dynamic date filters, and PDF/Excel/CSV exports.
+- **S3/MinIO Document Management** — Polymorphic cloud storage for official corporate, vehicle, and driver documents with drag-and-drop uploads and 15-minute presigned secure URLs.
+- **Master-Detail Settings Hub** — 4-tab configuration panel (Profile, Company, Security, Preferences) including MinIO-backed company logo upload and system-wide dark mode.
+- **Analytics & U-ETDS Compliance** — Live ESG/CO₂ tracking against corporate targets, and a fully compliant automated T.C. U-ETDS official regulatory reporting screen.
 
 #### B2C Public Marketplace
-- **Service Discovery** — Filter by service type and passenger count; company cards with rating, trip count, price range, CO₂/km
-- **Booking Flow** — Haversine-based distance calculation, dynamic pricing (`base_price + distance × price_per_km`), Nominatim geocoding, atomic order + reservation + task creation
-- **Order Tracking** — Real-time status tracking (Pending → Accepted → In Progress → Completed), trip details, cancellation
-- **Ratings** — 1–5 star + text review; feeds directly into driver Trust Score calculation
+- **Service Discovery & RAG Chatbot** — Filter by service type and passenger count. Includes a floating RAG-powered Gemini Chatbot (Redis-cached) for natural language marketplace assistance.
+- **Smart Booking & AI Surge Pricing** — Nominatim geocoding with city-level dynamic bounding boxes. Fares are calculated using **Gemini AI Dynamic Pricing** factoring in peak-hour multipliers, demand density, and passenger count.
+- **Carpooling (Shared Ride) Engine** — Intelligent matching algorithm that pairs compatible B2C orders within a ±2-hour window and 20km radius, applying a 20% discount and calculating exact CO₂ savings.
+- **Order Tracking & Trust Score** — Real-time status sync with B2B backend, plus 1–5 star ratings that feed directly into the NLP-analyzed driver Trust Score engine.
 
 #### Driver Panel
-- **Task Dashboard** — Assigned trips, start/complete actions, route map preview, 15-second polling
-- **Live GPS Sharing** — `watchPosition` with throttled backend persistence (max 1 request / 15s via VueUse `useThrottleFn`), `driver_lat / driver_lng / location_updated_at` stored to DB only when trip is active
-- **Cancellation Requests** — 1-per-reservation limit enforced at both frontend and backend
+- **Task Dashboard & Time-Window Enforcement** — Assigned trips with a strict early/late start window validation (automatically blocks starts >120m early), and 15-second polling.
+- **Live GPS Telemetry** — `watchPosition` with VueUse throttled backend persistence (max 1 req/15s) recording true drop-off coordinates for accurate P&L and ESG calculations.
+- **My Documents** — Direct mobile-friendly access to S3-backed personal and vehicle documents.
 
 #### Infrastructure & UX
-- **Notification System** — WebSocket instant push + DB persistent fallback; zil badge (9+), per-role filtering (Admin vs. Driver), offline catch-up on reconnect
-- **Split-Screen Auth** — Full-screen brand panel + form panel for B2B and B2C login/register
-- **Dark Mode** — System-wide `useColorMode` toggle (sun/moon icon), persisted in localStorage, `dark:` Tailwind variants throughout
-- **Toast Notifications** — Animated fade + Y-slide, 3.5s auto-dismiss, replacing all legacy `alert()` calls
+- **Notification Engine** — WebSocket instant push + DB persistent fallback, per-role filtering, and animated Toast notifications replacing legacy alerts.
+- **Global Search (⌘K)** — Command palette for instant, debounced prefetch navigation across pages, dynamic reservations, drivers, and requests.
+- **Dual-Chain Authentication** — Strictly isolated B2B and B2C JWT token chains, preventing cross-domain access at the framework middleware level.
+- **Split-Screen Auth & Dark Mode** — Enterprise-grade responsive auth panels, system-wide `useColorMode` toggle persisted in localStorage, with `dark:` Tailwind variants throughout.
 
 </div>
 
