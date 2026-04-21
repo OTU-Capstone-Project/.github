@@ -2,7 +2,7 @@
 
 # 🏢 OTU Capstone Project
 
-**Welcome to the official GitHub organization for our Ostim Technical University Software Engineering Capstone Project. We are a team of 5 senior engineering students dedicated to building enterprise-grade, AI-driven software solutions.**
+**Welcome to the official GitHub organization for our Ostim Technical University Software Engineering Capstone Project.**
 
 ---
 
