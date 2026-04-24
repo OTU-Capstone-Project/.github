@@ -6,10 +6,10 @@
 
 ---
 
-<h1 align="center"> FleetWise: Enterprise Mobility & Operations Management Platform</h1>
+<h1 align="center"> Rotakur: Enterprise Mobility & Operations Management Platform</h1>
 
 <p align="center">
-  We are redefining the global mobility market by bridging the gap between B2B corporate fleets and B2C end-users. Moving beyond simple ride-hailing and static hourly rentals, FiloWise is a fully-fledged <b>B2B SaaS + B2C Marketplace hybrid platform</b>. By bringing traditional, fragmented transportation processes under strict digital orchestration, we maximize operational margins, eliminate dead mileage, and provide an autonomous allocation engine powered by advanced AI and real-time telemetry.
+  We are redefining the global mobility market by bridging the gap between B2B corporate fleets and B2C end-users. Moving beyond simple ride-hailing and static hourly rentals, Rotakur is a fully-fledged <b>B2B SaaS + B2C Marketplace hybrid platform</b>. By bringing traditional, fragmented transportation processes under strict digital orchestration, we maximize operational margins, eliminate dead mileage, and provide an autonomous allocation engine powered by advanced AI and real-time telemetry.
 </p>
 
 <br />
@@ -26,7 +26,7 @@ Our system is built upon a strictly isolated, highly scalable PostgreSQL-first i
 
 ### 🧠 AI & Engineering Layer (The X-Factors)
 
-The proprietary technologies and deep engineering modules that transform FiloWise from a standard dashboard into an autonomous operations infrastructure:
+The proprietary technologies and deep engineering modules that transform Rotakur from a standard dashboard into an autonomous operations infrastructure:
 
 * **NLP Smart Dispatcher & Context-Aware Chatbot:** Powered by Google Gemini 2.5 Flash and `pgvector`. Extracts structured reservation data directly from WhatsApp-style raw text, and drives a Redis-cached RAG chatbot that understands the active marketplace context.
 * **OSRM Multi-Stop Routing & Dynamic Geofencing:** Replaced basic straight-line math with real road-network polyline decoding via OSRM. Features dynamic city-level bounding boxes and strict POI protection (locking critical infrastructure like airports/terminals) to prevent phantom bookings.
