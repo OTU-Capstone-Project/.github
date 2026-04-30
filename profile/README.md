@@ -96,7 +96,7 @@ The proprietary technologies and deep engineering modules that transform Rotakur
 
 ---
 
-### 👥 Core Team & Contributors
+### 👥 Core Team
 
 <table>
   <tr>
