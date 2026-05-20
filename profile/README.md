@@ -6,7 +6,7 @@
 
 ---
 
-<h1 align="center"> Rotakur: Enterprise Mobility & Operations Management Platform</h1>
+<h1 align="center"> Rotakur: Unified Corporate Fleet & Operations Marketplace</h1>
 
 <p align="center">
   We are redefining the global mobility market by bridging the gap between B2B corporate fleets and B2C end-users. Moving beyond simple ride-hailing and static hourly rentals, Rotakur is a fully-fledged <b>B2B SaaS + B2C Marketplace hybrid platform</b>. By bringing traditional, fragmented transportation processes under strict digital orchestration, we maximize operational margins, eliminate dead mileage, and provide an autonomous allocation engine powered by advanced AI and real-time telemetry.
