@@ -14,6 +14,18 @@
 
 <br />
 
+<div align="center">
+  <h3>🎬 Executive Technical Demo</h3>
+  <a href="https://www.youtube.com/watch?v=cwtYrzFHKOc">
+    <img src="https://img.youtube.com/vi/cwtYrzFHKOc/maxresdefault.jpg" alt="Rotakur Executive Technical Demo" width="100%" style="max-width: 850px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #333;" />
+  </a>
+  <p align="center">
+    <sub><i>Click the thumbnail above to watch our 1-Minute Executive Technical Demo on YouTube.</i></sub>
+  </p>
+</div>
+
+<br />
+
 ### 🏗️ 3 Main Architectural Layers
 
 Our system is built upon a strictly isolated, highly scalable PostgreSQL-first infrastructure, divided into three core pillars:
