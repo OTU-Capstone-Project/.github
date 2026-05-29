@@ -6,12 +6,22 @@
 
 ---
 
-<h1 align="center"> Rotakur: Unified Corporate Fleet & Operations Marketplace</h1>
-
+<h1 align="center"> Rotakur: Unified Fleet Supply & Mobility Marketplace</h1>
 <p align="center">
+  <i>An AI-driven logistics platform optimizing operational efficiency and sustainable CO2 reduction by connecting corporate fleets directly to B2B event organizations and B2C marketplace users.</i>
+</p>
+
+</div>
+
+<!-- Başlık grubu ile ana özet arasında profesyonel boşluk katmanı -->
+<br />
+<br />
+
+<p align="justify">
   We are redefining the global mobility market by bridging the gap between enterprise event organizers, B2B corporate fleets, and B2C end-users. Moving beyond simple ride-hailing and static hourly rentals, Rotakur is a fully-fledged <b>Multi-Tenant B2B Procurement SaaS + B2C Marketplace hybrid infrastructure</b>. By bringing traditional, fragmented transportation procurement and driver orchestration under strict digital control, we maximize operational margins, eliminate dead mileage, and provide an autonomous allocation engine powered by advanced AI and real-time telemetry.
 </p>
 
+<br />
 <br />
 
 <div align="center">
